@@ -55,3 +55,6 @@ async def serve_react(full_path: str):
     index_file = Path.cwd() / "public" / "index.html"
     with open(index_file, "r") as f:
         return f.read()
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=10000, debug=True)
