@@ -56,5 +56,12 @@ async def serve_react(full_path: str):
     with open(index_file, "r") as f:
         return f.read()
 
+
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000, debug=True)
+    import os
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))  # Render proporciona el puerto en PORT
+    uvicorn.run("main:app", host="0.0.0.0", port=port)  # Cambia "main" por el nombre de tu archivo Python
+
+
