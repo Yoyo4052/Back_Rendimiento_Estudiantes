@@ -44,7 +44,7 @@ def mod_pregunta(pregunta_id: int, entrada:page_schemas.PreguntaBase,db:session=
     db.refresh(pregunta)
     return pregunta
 
-@router.delete("/EliminarPregunta/{pregunta_id}",response_model=page_schemas.respuesta)
+@router.delete("/EliminarPregunta/{pregunta_id}/",response_model=page_schemas.respuesta)
 def del_pregunta(pregunta_id: int,db:session=Depends(get_pregunta)):
     pregunta = db.query(page_models.Preguntas).filter_by(id=pregunta_id).first()
     db.delete(pregunta)
