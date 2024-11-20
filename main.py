@@ -56,7 +56,19 @@ async def serve_react(full_path: str):
     with open(index_file, "r") as f:
         return f.read()
 
+from threading import Thread
+import time
+import requests
 
+def keep_alive():
+    while True:
+        try:
+            requests.get("https://back-rendimiento-estudiantes.onrender.com")
+        except Exception as e:
+            print(f"Error al hacer ping interno: {e}")
+        time.sleep(180)  # 5 minutos
+
+Thread(target=keep_alive, daemon=True).start()
 
 if __name__ == "__main__":
     import os
