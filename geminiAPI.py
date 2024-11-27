@@ -12,7 +12,7 @@ def to_markdown(text):
   text = text.replace('•', '  *')
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
-genai.configure(api_key="AIzaSyBOiy67W-3C1VopAvsaqvEnKWJ_sd0AHQA")
+genai.configure(api_key="AIzaSyAam0Dijv-W-ryrl_fuJN6ZP9hPjUHbuuM")
 
 def prompt_gen(prompt, data):
     if not prompt or not isinstance(prompt, str):
