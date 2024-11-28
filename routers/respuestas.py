@@ -25,7 +25,7 @@ def get_respuestas():
 
 
 
-@router.get("/gemini/{id_usuario}")
+@router.get("/gemini/{id_usuario}/")
 async def gemini_AI(id_usuario: int, db: session = Depends(get_respuestas)):
     # Seleccionar solo las columnas de preguntas y ponderación para el usuario especificado
     respuestas = db.query(page_models.Respuestas).filter(page_models.Respuestas.id_usuario == id_usuario).all()
