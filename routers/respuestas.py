@@ -38,6 +38,9 @@ async def gemini_AI(id_usuario: int, db: session = Depends(get_respuestas)):
     data = {"preguntas": preguntas, "ponderaciones": ponderaciones}
 
     prompt = '''Por favor, realiza un análisis de rendimiento escolar, una predicción de rendimiento a futuro y proporciona recomendaciones para el usuario basado en las respuestas que te enviaré a continuación. Las respuestas tienen una ponderación del 1 al 5, donde 1 es la calificación más baja y 5 es la más alta.
+            Recuerda que se está utilizando la escala siguiente para las respuestas:
+            5 (Muy de acuerdo) 4 (De acuerdo) 3 (Neutro) 2 (En desacuerdo) 1 (Muy en desacuerdo) 
+            Tienes que ser lo más objetivo posible, no importa si el resultado es bueno o malo.
             Intenta ser lo más extenso y específico posible.
             Tanto en el punto de "Analisis de rendimiento" como en "Prediccion de rendimiento a futuro" necesito una conclusión lo más extensa posible, con respuesta específica y no tan general.
             En el punto de "Recomendaciones" desglosa tu respuesta, e intenta explicar y sobretodo dar ejemplos de como aplicar cada una de esas recomendaciones que sugieres.
